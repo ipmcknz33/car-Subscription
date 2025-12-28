@@ -7,6 +7,8 @@
   --shadow: 0 16px 30px rgba(40, 30, 80, 0.12);
   --radius: 18px;
 }
+.status { margin-top: 14px; margin-bottom: 8px; }
+
 
 *{ box-sizing: border-box; }
 body{
