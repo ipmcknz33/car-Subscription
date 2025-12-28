@@ -1,0 +1,231 @@
+:root{
+  --purple: #5a33b8;
+  --purple-dark: #4a2aa0;
+  --text: #1e1f26;
+  --muted: #5b5f6a;
+  --bg: #ffffff;
+  --shadow: 0 16px 30px rgba(40, 30, 80, 0.12);
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container{
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.header{ padding: 22px 0; }
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  color: var(--purple);
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+.brand__mark{
+  width: 42px;
+  height: 26px;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, #ff3aa5, #7de3ea);
+  position: relative;
+}
+.brand__mark::after{
+  content:"";
+  position:absolute;
+  right:-10px;
+  top:6px;
+  width: 8px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--purple);
+  opacity: 0.0; /* decorative */
+}
+.brand__text{ font-size: 22px; }
+
+.nav__right{
+  display:flex;
+  align-items:center;
+  gap: 28px;
+}
+
+.nav__link{
+  text-decoration:none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 15px;
+}
+.nav__link--active{
+  color: var(--purple);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+}
+.btn--pill{
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--purple);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.main{ padding: 18px 0 42px; }
+
+.hero{
+  text-align:center;
+  padding-top: 12px;
+}
+
+.hero__title{
+  margin: 10px 0 14px;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+  color: var(--purple);
+  font-weight: 900;
+}
+
+.hero__subtitle{
+  margin: 0 0 26px;
+  font-size: 18px;
+  letter-spacing: 0.6px;
+  font-weight: 800;
+  color: #111827;
+}
+.hero__accent{ color: var(--purple); }
+
+.search{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 18px;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.search__input{
+  flex: 1;
+  height: 54px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(90,51,184,0.35);
+  padding: 0 18px;
+  font-size: 16px;
+  outline: none;
+}
+.search__input:focus{
+  border-color: rgba(90,51,184,0.75);
+  box-shadow: 0 0 0 6px rgba(90,51,184,0.12);
+}
+
+.search__btn{
+  height: 54px;
+  width: 86px;
+  border: none;
+  border-radius: 16px;
+  background: var(--purple);
+  cursor:pointer;
+  box-shadow: var(--shadow);
+}
+.search__btn:hover{ background: var(--purple-dark); }
+
+.status{ margin-top: 14px; }
+.loading{
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(90,51,184,0.10);
+  color: var(--purple);
+  font-weight: 700;
+}
+.error{
+  margin-top: 10px;
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(220, 38, 38, 0.10);
+  color: #b91c1c;
+  font-weight: 700;
+}
+.meta{
+  margin-top: 10px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.hidden{ display:none; }
+
+.results{
+  list-style:none;
+  padding: 0;
+  margin: 18px auto 0;
+  width: min(760px, 100%);
+  display:grid;
+  gap: 10px;
+}
+.card{
+  text-align:left;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(20, 20, 40, 0.05);
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+}
+.card__title{
+  font-weight: 900;
+  color: #111827;
+}
+.badges{
+  margin-top: 6px;
+  display:flex;
+  gap: 8px;
+  flex-wrap:wrap;
+}
+.badge{
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(90,51,184,0.25);
+  background: rgba(90,51,184,0.06);
+  color: var(--purple);
+  font-weight: 800;
+}
+
+.art{
+  margin: 18px auto 0;
+  width: min(760px, 100%);
+}
+.art__svg{
+  width: 100%;
+  height: auto;
+}
+
+.footer{
+  padding: 18px 0 28px;
+  color: var(--muted);
+}
+code{ color: var(--purple); font-weight: 800; }

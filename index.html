@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Car Subscription Platform (Mock)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a class="brand" href="#">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">blinker</span>
+      </a>
+
+      <div class="nav__right">
+        <a class="nav__link nav__link--active" href="#">Home</a>
+        <a class="nav__link" href="#find">Find your car</a>
+        <a class="btn btn--pill" href="#contact">CONTACT</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero container" id="find">
+      <h1 class="hero__title">
+        Australia's most awarded<br/>
+        car subscription platform
+      </h1>
+
+      <p class="hero__subtitle">
+        FIND YOUR DREAM CAR WITH <span class="hero__accent">BLINKER</span>
+      </p>
+
+      <form class="search" id="searchForm" autocomplete="off">
+        <input
+          id="searchInput"
+          class="search__input"
+          type="text"
+          placeholder="Search by Model, Make or Keyword"
+        />
+        <button class="search__btn" type="submit" aria-label="Search">
+          <!-- Magnifier icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" stroke="white" stroke-width="2"></circle>
+            <path d="M20 20L17 17" stroke="white" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </form>
+
+      <div class="status">
+        <div id="loading" class="loading hidden">Loading...</div>
+        <div id="error" class="error hidden"></div>
+        <div id="meta" class="meta"></div>
+      </div>
+
+      <ul id="results" class="results"></ul>
+
+      <div class="art" aria-hidden="true">
+        <!-- Simple SVG placeholder illustration (city/buildings vibe like the screenshot) -->
+        <svg viewBox="0 0 900 260" class="art__svg" role="img" aria-label="">
+          <defs>
+            <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="6" stdDeviation="6" flood-opacity="0.15"/>
+            </filter>
+          </defs>
+
+          <!-- little sun -->
+          <circle cx="240" cy="70" r="14" fill="#ff3aa5" filter="url(#soft)"/>
+          <!-- birds -->
+          <path d="M520 80c10-8 18-8 28 0" stroke="#222" stroke-opacity="0.35" stroke-width="3" fill="none" />
+          <path d="M560 95c10-8 18-8 28 0" stroke="#222" stroke-opacity="0.35" stroke-width="3" fill="none" />
+          <path d="M600 78c10-8 18-8 28 0" stroke="#222" stroke-opacity="0.35" stroke-width="3" fill="none" />
+
+          <!-- ground -->
+          <rect x="150" y="215" width="600" height="8" rx="4" fill="#0b0f17" opacity="0.15"/>
+
+          <!-- left tree -->
+          <circle cx="320" cy="175" r="10" fill="#7de3ea"/>
+          <rect x="317" y="185" width="6" height="30" rx="3" fill="#111" opacity="0.35"/>
+
+          <!-- right trees -->
+          <circle cx="675" cy="175" r="10" fill="#7de3ea"/>
+          <rect x="672" y="185" width="6" height="30" rx="3" fill="#111" opacity="0.35"/>
+          <circle cx="705" cy="165" r="14" fill="#7de3ea"/>
+          <rect x="702" y="178" width="6" height="37" rx="3" fill="#111" opacity="0.35"/>
+
+          <!-- buildings group -->
+          <g filter="url(#soft)">
+            <!-- tall building -->
+            <rect x="435" y="90" width="70" height="125" rx="6" fill="#5a33b8"/>
+            <!-- windows -->
+            <g opacity="0.85">
+              <!-- simple grid -->
+              <rect x="450" y="105" width="8" height="8" fill="#fff"/>
+              <rect x="465" y="105" width="8" height="8" fill="#fff"/>
+              <rect x="480" y="105" width="8" height="8" fill="#fff"/>
+
+              <rect x="450" y="120" width="8" height="8" fill="#fff"/>
+              <rect x="465" y="120" width="8" height="8" fill="#fff"/>
+              <rect x="480" y="120" width="8" height="8" fill="#fff"/>
+
+              <rect x="450" y="135" width="8" height="8" fill="#fff"/>
+              <rect x="465" y="135" width="8" height="8" fill="#fff"/>
+              <rect x="480" y="135" width="8" height="8" fill="#fff"/>
+
+              <rect x="450" y="150" width="8" height="8" fill="#fff"/>
+              <rect x="465" y="150" width="8" height="8" fill="#fff"/>
+              <rect x="480" y="150" width="8" height="8" fill="#fff"/>
+            </g>
+
+            <!-- mid building -->
+            <rect x="515" y="125" width="60" height="90" rx="6" fill="#5a33b8" opacity="0.95"/>
+            <g opacity="0.85">
+              <rect x="530" y="140" width="8" height="8" fill="#fff"/>
+              <rect x="545" y="140" width="8" height="8" fill="#fff"/>
+              <rect x="530" y="155" width="8" height="8" fill="#fff"/>
+              <rect x="545" y="155" width="8" height="8" fill="#fff"/>
+              <rect x="530" y="170" width="8" height="8" fill="#fff"/>
+              <rect x="545" y="170" width="8" height="8" fill="#fff"/>
+            </g>
+
+            <!-- house -->
+            <rect x="355" y="150" width="90" height="65" rx="8" fill="#5a33b8"/>
+            <path d="M345 155L400 120L455 155" fill="#5a33b8"/>
+            <rect x="385" y="175" width="25" height="40" rx="5" fill="#fff"/>
+            <rect x="365" y="175" width="14" height="14" fill="#fff" opacity="0.9"/>
+            <rect x="418" y="175" width="14" height="14" fill="#fff" opacity="0.9"/>
+          </g>
+
+          <!-- small bench -->
+          <rect x="275" y="205" width="35" height="6" rx="3" fill="#0b0f17" opacity="0.25"/>
+          <rect x="279" y="196" width="27" height="6" rx="3" fill="#0b0f17" opacity="0.18"/>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container" id="contact">
+    <small>Mock UI for final project • Connect to your API endpoint in <code>app.js</code></small>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
